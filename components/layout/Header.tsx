@@ -33,7 +33,6 @@ const Header = () => {
   
   const links = [
     { href: '/', label: 'Home' },
-    { href: '/products', label: 'Shop' },
     { href: '/about', label: 'About Us' },
     { href: '/contact', label: 'Contact' },
   ];
