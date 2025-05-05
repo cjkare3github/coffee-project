@@ -10,8 +10,7 @@ import desnImg from '../../images/desn.jpg';
 import tinaImg from './tina.jpg';
 import adinanImg from '../../images/adinan.jpg';
 import simonImg from '../../images/simon.jpg';
-import { Button } from 'components/ui/button';
-import { Separator } from 'components/ui/separator';
+import { Button } from '@/components/ui/button';
 
 export default function AboutPage() {
   // Animation refs
