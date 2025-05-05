@@ -35,8 +35,15 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import ProductCard from '@/components/products/ProductCard';
 import { useCart } from '@/context/CartContext';
-import { getProductBySlug, getRelatedProducts, type Product } from '@/data/products';
+import { getProductBySlug, getRelatedProducts, type Product, products } from '@/data/products';
 import { formatPrice } from '@/lib/utils';
+
+// Add generateStaticParams function for static site generation
+export async function generateStaticParams() {
+  return products.map((product) => ({
+    slug: product.slug,
+  }));
+}
 
 export default function ProductDetailPage() {
   const router = useRouter();
