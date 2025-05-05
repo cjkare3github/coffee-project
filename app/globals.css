@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 54, 44, 33;
+  --background-start-rgb: 252, 249, 245;
+  --background-end-rgb: 246, 240, 233;
+  
+  /* Coffee-inspired color palette */
+  --color-espresso: 32, 22, 11;
+  --color-mocha: 86, 64, 51;
+  --color-caramel: 193, 154, 107;
+  --color-cream: 245, 235, 224;
+  --color-bean: 54, 44, 33;
+}
+
+@layer base {
+  :root {
+    --background: 40 30% 98%;
+    --foreground: 30 30% 17%;
+    --card: 0 0% 100%;
+    --card-foreground: 30 30% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 30% 10%;
+    --primary: 30 40% 25%;
+    --primary-foreground: 30 20% 95%;
+    --secondary: 25 40% 95%;
+    --secondary-foreground: 30 40% 25%;
+    --muted: 30 20% 95%;
+    --muted-foreground: 30 30% 40%;
+    --accent: 34 80% 50%;
+    --accent-foreground: 30 20% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 20% 85%;
+    --input: 30 20% 90%;
+    --ring: 30 40% 40%;
+    --chart-1: 30 80% 45%;
+    --chart-2: 20 70% 35%;
+    --chart-3: 30 50% 25%;
+    --chart-4: 25 65% 50%;
+    --chart-5: 35 75% 60%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 30 30% 10%;
+    --foreground: 30 20% 95%;
+    --card: 30 30% 12%;
+    --card-foreground: 30 20% 95%;
+    --popover: 30 30% 12%;
+    --popover-foreground: 30 20% 95%;
+    --primary: 30 50% 70%;
+    --primary-foreground: 30 20% 10%;
+    --secondary: 30 30% 20%;
+    --secondary-foreground: 30 20% 95%;
+    --muted: 30 30% 20%;
+    --muted-foreground: 30 20% 75%;
+    --accent: 34 80% 50%;
+    --accent-foreground: 30 20% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 30% 25%;
+    --input: 30 30% 25%;
+    --ring: 30 50% 70%;
+    --chart-1: 30 70% 60%;
+    --chart-2: 25 60% 55%;
+    --chart-3: 20 50% 45%;
+    --chart-4: 35 65% 65%;
+    --chart-5: 40 75% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+  p, span, div, button, a {
+    @apply font-inter;
+  }
+}
+
+/* Custom styling */
+.font-playfair {
+  font-family: var(--font-playfair);
+}
+
+.font-inter {
+  font-family: var(--font-inter);
+}
+
+.hero-gradient {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('/images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.product-card-hover {
+  transition: transform 0.3s ease-out;
+}
+
+.product-card-hover:hover {
+  transform: translateY(-8px);
+}
+
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  z-index: 1;
+  pointer-events: none;
+}
