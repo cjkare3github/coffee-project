@@ -8,7 +8,8 @@ import { ShoppingCart, X, Trash2, Plus, Minus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
-import { useCart, CartItem } from '@/context/CartContext';
+import { useCart } from '@/context/CartContext';
+import type { CartItem } from '@/context/CartContext';
 import { formatPrice } from '@/lib/utils';
 
 type CartDrawerProps = {
@@ -40,12 +41,6 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
     exit: { opacity: 0 }
   };
   
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -20 }
-  };
-
   return (
     <AnimatePresence>
       {isOpen && (
@@ -149,6 +144,13 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
 // Individual cart item component
 const CartItem = ({ item }: { item: CartItem }) => {
   const { removeItem, updateQuantity } = useCart();
+
+  // Animation variants for individual cart items
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+    exit: { opacity: 0, y: 20, transition: { duration: 0.2 } },
+  };
   
   return (
     <motion.div 
